@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Walkable
+  - Path
   layers:
   - Default
   - TransparentFX

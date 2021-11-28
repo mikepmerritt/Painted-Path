@@ -45,8 +45,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15239072, y: 0.052150846}
-  m_Size: {x: 0.20334196, y: 0.8956983}
+  m_Offset: {x: 0.15239072, y: 0.16981292}
+  m_Size: {x: 0.20334196, y: 0.66037416}
   m_Direction: 0
 --- !u!114 &319672999
 MonoBehaviour:
@@ -61,6 +61,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckForHit: 1
+--- !u!1 &4838988037502587834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8730160591409894309}
+  - component: {fileID: 8219032930539216749}
+  - component: {fileID: 5372888429051323267}
+  m_Layer: 0
+  m_Name: Climb Checker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8730160591409894309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838988037502587834}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8692921190477746021}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8219032930539216749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838988037502587834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0a58f5e9019cc4d8b0cd4f3a50fec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &5372888429051323267
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838988037502587834}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03843069, y: -0.4427188}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.33185196, y: 0.110648036}
+  m_EdgeRadius: 0
 --- !u!1 &8692921190477746023
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 319672997}
+  - {fileID: 8730160591409894309}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 91df25e653155b64e97308c45d065e98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -198,6 +269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StopOnEdges: 0
   WalkSpeed: 0
+  ClimbSpeed: 0
   BaseSpeed: 2
   OnGround: 0
   Direction: 0
+  OffGroundTimer: 0

@@ -5,10 +5,11 @@ using UnityEngine;
 public class AutoWalk : MonoBehaviour
 {
     public bool StopOnEdges;
-    public float WalkSpeed;
+    public float WalkSpeed, ClimbSpeed;
     public float BaseSpeed;
     public bool OnGround;
     public int Direction;
+    public float OffGroundTimer;
 
     void Start()
     {
@@ -26,7 +27,18 @@ public class AutoWalk : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        GetComponent<Rigidbody2D>().velocity = new Vector2(WalkSpeed, 0);
+
+        if (OffGroundTimer > 0 && !OnGround)
+        {
+            OffGroundTimer -= Time.deltaTime;
+        }
+        else if (OffGroundTimer <= 0 && !OnGround)
+        {
+            WalkSpeed = 0;
+            ClimbSpeed = 0;
+        }
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(WalkSpeed, ClimbSpeed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,18 +47,25 @@ public class AutoWalk : MonoBehaviour
         {
             // make the player start walking
             WalkSpeed = BaseSpeed * Direction;
+            ClimbSpeed = 0;
 
             // set the player as on the ground
-            if (OnGround == false)
-            {
-                OnGround = true;
-            }
+            OnGround = true;
+        }
+
+        if(collision.gameObject.CompareTag("Path"))
+        {
+            // make the player start walking
+            WalkSpeed = BaseSpeed * Direction;
+
+            // set the player as on the ground
+            OnGround = true;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         OnGround = false;
-        WalkSpeed = 0;
+        OffGroundTimer = 0.5f;
     }
 }

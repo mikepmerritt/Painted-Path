@@ -12,7 +12,7 @@ public class SecondaryColliderCheck : MonoBehaviour
     {
         if (CheckForHit)
         {
-            if (collision.gameObject.CompareTag("Walkable"))
+            if (collision.gameObject.CompareTag("Walkable") || collision.gameObject.CompareTag("Path"))
             {
                 GetComponentInParent<AutoWalk>().Direction *= -1;
                 GetComponentInParent<AutoWalk>().WalkSpeed = GetComponentInParent<AutoWalk>().BaseSpeed * GetComponentInParent<AutoWalk>().Direction;
@@ -25,7 +25,7 @@ public class SecondaryColliderCheck : MonoBehaviour
     {
         if (!CheckForHit)
         {
-            if (collision.gameObject.CompareTag("Walkable"))
+            if (collision.gameObject.CompareTag("Walkable") || collision.gameObject.CompareTag("Path"))
             {
                 GetComponentInParent<AutoWalk>().Direction *= -1;
                 GetComponentInParent<AutoWalk>().WalkSpeed = GetComponentInParent<AutoWalk>().BaseSpeed * GetComponentInParent<AutoWalk>().Direction;
