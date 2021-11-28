@@ -6,42 +6,34 @@ public class AutoWalk : MonoBehaviour
 {
     public bool StopOnEdges;
     float WalkSpeed;
+    float SpeedNumber;
     private Rigidbody2D rb;
     bool OnGround;
+    int direction;
     
 
     void Start()
     {
-        WalkSpeed = 2;
+        SpeedNumber = 2;
         OnGround = false;
-        
+        direction = 1;
 
     }
 
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(WalkSpeed, 0);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(SpeedNumber * direction, 0);
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(OnGround == false)
-        {
-            WalkSpeed = 2;
-            OnGround = true;
-        }
-        else
-        {
-            WalkSpeed = -2;
-            OnGround = true;
-        }
-        //WalkSpeed = 2;
+        SpeedNumber = 2;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         OnGround = false;
-        WalkSpeed = 0;
+        SpeedNumber = 0;
     }
 }
