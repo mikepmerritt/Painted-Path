@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 319672998}
   - component: {fileID: 319672999}
   m_Layer: 0
-  m_Name: Wall Collider
+  m_Name: Wall Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
