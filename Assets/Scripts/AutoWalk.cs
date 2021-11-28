@@ -5,49 +5,48 @@ using UnityEngine;
 public class AutoWalk : MonoBehaviour
 {
     public bool StopOnEdges;
-    float WalkSpeed;
-    float SpeedNumber;
-    private Rigidbody2D rb;
-    bool OnGround;
-    int direction;
-    
+    public float WalkSpeed;
+    public float BaseSpeed;
+    public bool OnGround;
+    public int Direction;
 
     void Start()
     {
-        WalkSpeed = 2;
-        SpeedNumber = WalkSpeed;
         OnGround = false;
-        direction = 1;
-
+        Direction = 1; // start facing right
     }
 
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(SpeedNumber * direction, 0);
-
+        if(Direction == -1)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (Direction == 1)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        GetComponent<Rigidbody2D>().velocity = new Vector2(WalkSpeed, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SpeedNumber = 2;
-        if (OnGround == false)
+        if(collision.gameObject.CompareTag("Walkable"))
         {
-            OnGround = true;
-        }
-        else
-        {
-            direction = -1 * direction;
+            // make the player start walking
+            WalkSpeed = BaseSpeed * Direction;
+
+            // set the player as on the ground
+            if (OnGround == false)
+            {
+                OnGround = true;
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         OnGround = false;
-        SpeedNumber = 0;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        direction = -1 * direction;
+        WalkSpeed = 0;
     }
 }
