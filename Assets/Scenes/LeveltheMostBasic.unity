@@ -686,6 +686,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4253798974715028351, guid: 2d81a583a6a75ff45b73c847baa41842, type: 3}
+      propertyPath: m_Size.x
+      value: 0.17222166
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253798974715028351, guid: 2d81a583a6a75ff45b73c847baa41842, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.3662579
+      objectReference: {fileID: 0}
     - target: {fileID: 4687357022478565506, guid: 2d81a583a6a75ff45b73c847baa41842, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -733,14 +741,6 @@ PrefabInstance:
     - target: {fileID: 4687357022478565513, guid: 2d81a583a6a75ff45b73c847baa41842, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4687357022478565516, guid: 2d81a583a6a75ff45b73c847baa41842, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4687357022478565518, guid: 2d81a583a6a75ff45b73c847baa41842, type: 3}
-      propertyPath: BaseSpeed
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d81a583a6a75ff45b73c847baa41842, type: 3}
