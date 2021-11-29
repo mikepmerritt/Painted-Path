@@ -41,6 +41,12 @@ public class AutoWalk : MonoBehaviour
         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(WalkSpeed, ClimbSpeed);
+
+        // if the moving entity has fallen off the bottom of the screen, kill it
+        if(transform.position.y < -6f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
