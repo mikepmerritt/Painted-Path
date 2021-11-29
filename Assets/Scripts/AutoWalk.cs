@@ -68,6 +68,6 @@ public class AutoWalk : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         OnGround = false;
-        OffGroundTimer = 0.5f;
+        OffGroundTimer = 0.4f;
     }
 }
