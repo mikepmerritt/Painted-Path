@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundCheck : MonoBehaviour
+public class ClimbCheck : MonoBehaviour
 {
-    // check inside the trigger, and flip the player if the trigger is inside a walkable surface (a wall for example)
+    // if the player is hitting a sloped path, give them some vertical mobility
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Walkable") || collision.gameObject.CompareTag("Path"))

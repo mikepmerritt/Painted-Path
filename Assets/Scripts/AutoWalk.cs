@@ -10,6 +10,7 @@ public class AutoWalk : MonoBehaviour
     public bool OnGround;
     public int Direction;
     public float OffGroundTimer;
+    public GameObject EmergencyFloorChecker;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class AutoWalk : MonoBehaviour
         {
             WalkSpeed = 0;
             ClimbSpeed = 0;
+            EmergencyFloorChecker.SetActive(true);
         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(WalkSpeed, ClimbSpeed);
