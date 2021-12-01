@@ -343,10 +343,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Artist
       objectReference: {fileID: 0}
-    - target: {fileID: 8692921190477746023, guid: 7fc003effb6a3d94c9e4419abec671d6, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fc003effb6a3d94c9e4419abec671d6, type: 3}
 --- !u!1 &531046970
@@ -380,6 +376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathPrefab: {fileID: 5860947073172670806, guid: 6773838b255c78a44929468a407a37a5, type: 3}
+  LastClickLocation: {x: 0, y: 0, z: 0}
+  MouseHeld: 0
 --- !u!4 &531046972
 Transform:
   m_ObjectHideFlags: 0
