@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathPrefab: {fileID: 5860947073172670806, guid: 6773838b255c78a44929468a407a37a5, type: 3}
+  DrawCheckPrefab: {fileID: 2582844206118075967, guid: 99ba0fb8630f6544d916695235d0aa00, type: 3}
   LastClickLocation: {x: 0, y: 0, z: 0}
   MouseHeld: 0
   MaxPathCount: 100
+  Fill: {fileID: 0}
 --- !u!114 &1489214811348215858
 MonoBehaviour:
   m_ObjectHideFlags: 0

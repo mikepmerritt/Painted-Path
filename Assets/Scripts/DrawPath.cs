@@ -9,12 +9,28 @@ public class DrawPath : MonoBehaviour
     public bool MouseHeld;
     public int MaxPathCount;
     public static int CurrentPathCount = 0;
+    public RectTransform Fill;
+    public GameObject[] NoDrawBoxes;
+
+    public void Start()
+    {
+        NoDrawBoxes = GameObject.FindGameObjectsWithTag("No Draw");
+    }
 
     public void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
             MouseHeld = false;
+        }
+        Fill.anchorMax = new Vector2(0.01f * (MaxPathCount - CurrentPathCount), 1);
+        if(CurrentPathCount < 0)
+        {
+            CurrentPathCount = 0;
+        }
+        if (CurrentPathCount > MaxPathCount)
+        {
+            CurrentPathCount = MaxPathCount;
         }
     }
 
@@ -63,9 +79,28 @@ public class DrawPath : MonoBehaviour
     {
         if(CurrentPathCount < MaxPathCount)
         {
-            GameObject newObject = Instantiate(PathPrefab, position + new Vector3(0, 0, 10), Quaternion.identity);
-            CurrentPathCount++;
-            return newObject;
+            bool draw = true; // draw path dot by default
+            foreach (GameObject box in NoDrawBoxes)
+            {
+                // if inside the bounds of the no draw box
+                if((position.x >= box.GetComponent<NoDrawBox>().minX && 
+                    position.x <= box.GetComponent<NoDrawBox>().maxX) &&
+                   (position.y >= box.GetComponent<NoDrawBox>().minY &&
+                    position.y <= box.GetComponent<NoDrawBox>().maxY))
+                {
+                    draw = false; // in box, so don't draw
+                }
+            }
+            if (draw)
+            {
+                GameObject newObject = Instantiate(PathPrefab, position + new Vector3(0, 0, 10), Quaternion.identity);
+                CurrentPathCount++;
+                return newObject;
+            }
+            else
+            {
+                return null;
+            }
         }
         else
         {
