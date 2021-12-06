@@ -10,6 +10,7 @@ public class InstaKill : MonoBehaviour
         {
             Debug.Log("Game over, restart");
             Destroy(collision.gameObject);
+            DrawPath.CurrentPathCount = 0;
         }
     }
 }

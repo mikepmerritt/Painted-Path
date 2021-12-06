@@ -11,6 +11,7 @@ public class PathDespawn : MonoBehaviour
         Lifespan -= Time.deltaTime;
         if (Lifespan <= 0)
         {
+            DrawPath.CurrentPathCount--;
             Destroy(gameObject);
         }
     }

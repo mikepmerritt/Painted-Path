@@ -13,6 +13,7 @@ public class LevelClear : MonoBehaviour
         {
             Debug.Log("Level cleared!");
             SceneManager.LoadScene(nextlevelnum);
+            DrawPath.CurrentPathCount = 0;
         }
     }
 }

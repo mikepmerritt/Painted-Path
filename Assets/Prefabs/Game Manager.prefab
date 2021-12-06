@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathPrefab: {fileID: 5860947073172670806, guid: 6773838b255c78a44929468a407a37a5, type: 3}
+  LastClickLocation: {x: 0, y: 0, z: 0}
+  MouseHeld: 0
+  MaxPathCount: 100
 --- !u!114 &1489214811348215858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,3 +60,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0638f8375d71140980ef22161afe2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelnum: 0

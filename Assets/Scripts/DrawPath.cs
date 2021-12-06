@@ -7,6 +7,8 @@ public class DrawPath : MonoBehaviour
     public GameObject PathPrefab;
     public Vector3 LastClickLocation;
     public bool MouseHeld;
+    public int MaxPathCount;
+    public static int CurrentPathCount = 0;
 
     public void Update()
     {
@@ -59,7 +61,15 @@ public class DrawPath : MonoBehaviour
 
     public GameObject CreatePathObject(Vector3 position)
     {
-        GameObject newObject = Instantiate(PathPrefab, position + new Vector3(0, 0, 10), Quaternion.identity);
-        return newObject;
+        if(CurrentPathCount < MaxPathCount)
+        {
+            GameObject newObject = Instantiate(PathPrefab, position + new Vector3(0, 0, 10), Quaternion.identity);
+            CurrentPathCount++;
+            return newObject;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
