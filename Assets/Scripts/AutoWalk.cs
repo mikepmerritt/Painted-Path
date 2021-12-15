@@ -11,6 +11,7 @@ public class AutoWalk : MonoBehaviour
     public int Direction;
     public float OffGroundTimer;
     public GameObject EmergencyFloorChecker;
+    public Animator animator;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class AutoWalk : MonoBehaviour
             WalkSpeed = 0;
             ClimbSpeed = 0;
             EmergencyFloorChecker.SetActive(true);
+            animator.speed = 0;
         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(WalkSpeed, ClimbSpeed);
@@ -57,8 +59,9 @@ public class AutoWalk : MonoBehaviour
             WalkSpeed = BaseSpeed * Direction;
             ClimbSpeed = 0;
 
-            // set the player as on the ground
+            // set the player as on the ground and start walking anim
             OnGround = true;
+            animator.speed = 1;
         }
 
         if(collision.gameObject.CompareTag("Path"))
@@ -66,8 +69,9 @@ public class AutoWalk : MonoBehaviour
             // make the player start walking
             WalkSpeed = BaseSpeed * Direction;
 
-            // set the player as on the ground
+            // set the player as on the ground and start walking anim
             OnGround = true;
+            animator.speed = 1;
         }
     }
 
