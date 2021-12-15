@@ -456,7 +456,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1489214811348215858, guid: 14683f8685e948149a601c1d02dbe0ee, type: 3}
       propertyPath: levelnum
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1489214811348215859, guid: 14683f8685e948149a601c1d02dbe0ee, type: 3}
       propertyPath: m_RootOrder
