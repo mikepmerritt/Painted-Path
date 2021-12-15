@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrawPath : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class DrawPath : MonoBehaviour
     public bool MouseHeld;
     public int MaxPathCount;
     public static int CurrentPathCount = 0;
-    public RectTransform Fill;
+    public Image Fill;
     public GameObject[] NoDrawBoxes;
 
     public void Start()
@@ -23,7 +24,7 @@ public class DrawPath : MonoBehaviour
         {
             MouseHeld = false;
         }
-        Fill.anchorMax = new Vector2(0.01f * (MaxPathCount - CurrentPathCount), 1);
+        Fill.fillAmount = 0.01f * (MaxPathCount - CurrentPathCount);
         if(CurrentPathCount < 0)
         {
             CurrentPathCount = 0;
